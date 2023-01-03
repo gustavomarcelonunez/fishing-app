@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fishing_info_activity"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="Tipos de pesca" />
+    <item
+        android:id="@+id/regulations_fragment"
+        android:icon="@android:drawable/ic_menu_zoom"
+        android:title="Reglamentaciones" />
+    <item
+        android:id="@+id/contest_fragment"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Concursos" />
+
+    <item
+        android:id="@+id/about_fragment"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="Acerca de" />
+</menu>

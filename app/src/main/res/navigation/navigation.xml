@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/main_fragment">
+    <!-- ...tags for fragments and activities here -->
+
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="com.example.demo.fragment.MainFragment"
+        android:label="Fishing App"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/loginAction"
+            app:destination="@id/login_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/registerAction"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/report_add_fragment"
+        android:name="com.example.demo.fragment.add.ReportAddFragment"
+        android:label="Crear reporte"
+        tools:layout="@layout/fragment_report_add">
+        <action
+            android:id="@+id/fishingInfoAction"
+            app:destination="@id/fishing_info_activity"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/goToMapsFragmentAction"
+            app:destination="@id/maps_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+
+    </fragment>
+    <activity
+        android:id="@+id/fishing_info_activity"
+        android:name="com.example.demo.activity.FishingInfoActivity"
+        android:label="Información"
+        tools:layout="@layout/activity_fishing_info" />
+    <fragment
+        android:id="@+id/report_detail_fragment"
+        android:name="com.example.demo.fragment.detail.ReportDetailFragment"
+        android:label="Reporte - Detalle"
+        tools:layout="@layout/fragment_report_detail">
+        <action
+            android:id="@+id/goToReportUpdateAction"
+            app:destination="@id/report_update_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <argument
+            android:name="currentReport"
+            app:argType="com.example.demo.model.Report" />
+        <action
+            android:id="@+id/goToMyReportsFromReportDetailAction"
+            app:destination="@id/my_reports_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/goToMapsFragmentFromReportDetailFragment"
+            app:destination="@id/maps_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/about_fragment"
+        android:name="com.example.demo.fragment.info.AboutFragment"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/my_reports_fragment"
+        android:name="com.example.demo.fragment.list.ReportListFragment"
+        android:label="Mis reportes"
+        tools:layout="@layout/fragment_report_list">
+        <action
+            android:id="@+id/goToReportDetailFromMyReportsAction"
+            app:destination="@id/report_detail_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.example.demo.fragment.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/goToHomeFragment"
+            app:destination="@id/home_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/contest_fragment"
+        android:name="com.example.demo.fragment.list.ContestListFragment"
+        android:label="Concursos"
+        tools:layout="@layout/fragment_contest_list" />
+    <fragment
+        android:id="@+id/regulations_fragment"
+        android:name="com.example.demo.fragment.list.RegulationListFragment"
+        android:label="Reglamentaciones"
+        tools:layout="@layout/fragment_regulation_list" />
+    <fragment
+        android:id="@+id/contest_detail_fragment"
+        android:name="com.example.demo.fragment.detail.ContestDetailFragment"
+        android:label="Concurso - Detalle"
+        tools:layout="@layout/fragment_contest_detail" />
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.example.demo.fragment.home.HomeFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/goToMyReportsFromHomeAction"
+            app:destination="@id/my_reports_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/goToNewReportAction"
+            app:destination="@id/report_add_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/goToContestsAction"
+            app:destination="@id/contest_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/goToRegulationsAction"
+            app:destination="@id/regulations_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/goToMultipleMapsFragmentFromHomeAction"
+            app:destination="@id/multiple_maps_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/report_update_fragment"
+        android:name="com.example.demo.fragment.update.ReportUpdateFragment"
+        android:label="Reporte - Edición"
+        tools:layout="@layout/fragment_report_update">
+        <action
+            android:id="@+id/goToReportDetailFromUpdateReportAction"
+            app:destination="@id/report_detail_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <argument
+            android:name="currentReport"
+            app:argType="com.example.demo.model.Report" />
+        <action
+            android:id="@+id/goToMapsFragmentFromReportUpdateFragment"
+            app:destination="@id/maps_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/maps_fragment"
+        android:name="com.example.demo.fragment.maps.MapsFragment"
+        android:label="Mapa de captura"
+        tools:layout="@layout/fragment_maps">
+        <argument
+            android:name="currentReport"
+            app:argType="com.example.demo.model.Report" />
+    </fragment>
+    <fragment
+        android:id="@+id/multiple_maps_fragment"
+        android:name="com.example.demo.fragment.maps.MultipleMapsFragment"
+        android:label="Mapa de capturas"
+        tools:layout="@layout/fragment_multiple_maps" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.demo.fragment.register.RegisterFragment"
+        android:label="Registro"
+        tools:layout="@layout/fragment_register" />
+
+</navigation>

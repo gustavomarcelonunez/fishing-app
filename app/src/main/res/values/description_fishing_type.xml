@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="descriptionFishingType">
+        <item>
+            Actividad pesquera que se realiza con propósitos recreativos, competitivos y turísticos, y sin fines de lucro; los peces extraídos pueden ser devueltos a su medio o conservados para consumo personal. En este caso está prohibida la comercialización de los ejemplares extraídos. Para esta actividad, las artes de pesca serán el uso de anzuelos y liñadas o caña con o sin riel.
+        </item>
+        <item>
+            Se practica con fines de investigación científico-educativa. Para el desarrollo de esta actividad, las artes de pesca serán las establecidas por la Ley 3556/08 u otras no especificadas, pero debidamente autorizadas por la SEAM.
+        </item>
+        <item>
+            Organizada por empresas dedicadas al rubro de turismo, pudiendo los peces capturados ser devueltos a su medio, conservados como trofeo o destinados al consumo personal. Está expresamente prohibida la comercialización de los peces extraídos.
+        </item>
+        <item>
+            Se realiza con el fin de lucrar con la comercialización de los peces capturados, y está sujeta a las normativas jurídicas y comerciales.
+        </item>
+    </string-array>
+</resources>

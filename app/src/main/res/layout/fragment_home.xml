@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.home.HomeFragment">
+
+    <Button
+        android:id="@+id/myReportsButton"
+        android:layout_width="262dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="24dp"
+        android:text="Mis reportes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/newReportButton"
+        android:layout_width="262dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="5dp"
+        android:text="Nuevo reporte"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myReportsButton" />
+
+    <Button
+        android:id="@+id/contestsButton"
+        android:layout_width="262dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="5dp"
+        android:text="Concursos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newReportButton" />
+
+    <Button
+        android:id="@+id/regulationsButton"
+        android:layout_width="262dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="5dp"
+        android:text="Reglamentaciones"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contestsButton" />
+
+    <Button
+        android:id="@+id/logOutButton"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginBottom="44dp"
+        android:text="Salir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/goToMapButton"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="44dp"
+        android:text="Mis capturas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="260dp"
+        android:layout_height="262dp"
+
+        android:layout_marginStart="135dp"
+        android:src="@drawable/pescador"
+        app:layout_constraintBottom_toTopOf="@+id/logOutButton"
+        app:layout_constraintStart_toStartOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="215dp"
+        android:layout_height="163dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:scaleX="-1"
+        android:src="@drawable/barquitos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regulationsButton" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
