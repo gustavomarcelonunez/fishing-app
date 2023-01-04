@@ -68,6 +68,7 @@ class ReportListFragment : Fragment(), ReportListAdapter.OnReportClickListener {
                 }, year, month, day
             )
             dpd.show()
+
             true
         } else return if (id == R.id.report_action_clear_filter) {
             loadFullList()

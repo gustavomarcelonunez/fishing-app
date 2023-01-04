@@ -134,7 +134,7 @@ class ReportAddFragment : Fragment() {
             val title = _binding?.titleTextInput?.text.toString()
             val fishingType = _binding?.spinner?.selectedItem.toString()
             val specie = _binding?.spinnerFishSpecies?.selectedItem.toString()
-            val sdf = SimpleDateFormat("dd/M/yyyy")
+            val sdf = SimpleDateFormat("d/M/yyyy")
             val currentDate = sdf.format(Date())
             val report = Report(0, title, fishingType, specie, currentDate, currentPhotoPath, null, null)
 
