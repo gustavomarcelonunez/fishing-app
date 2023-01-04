@@ -33,7 +33,7 @@ class ReportDetailFragment : Fragment() {
 
         _binding!!.titleTextView.text = args.currentReport.title
         _binding!!.fishingTypeTextView.text = args.currentReport.fishing_type
-
+        _binding!!.specieTextView.text = args.currentReport.specie
         _binding!!.dateTextView.text = args.currentReport.date
 
         val file = File(args.currentReport.photo_path)

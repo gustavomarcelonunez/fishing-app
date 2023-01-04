@@ -49,7 +49,7 @@ class MapsFragment : Fragment() {
             val pos = LatLng(args.currentReport.latitude!!, args.currentReport.longitude!!)
             val snippet = String.format(
                 Locale.getDefault(),
-                "Tipo de pesca: %1$.15s, Especie: %2$.15s, Fecha: %3$.15s",
+                "Tipo: %1$.15s - Especie: %2$.15s - Fecha: %3$.15s",
                 args.currentReport.fishing_type,
                 args.currentReport.specie,
                 args.currentReport.date
@@ -57,7 +57,7 @@ class MapsFragment : Fragment() {
             marker = googleMap.addMarker(
                 MarkerOptions()
                     .position(pos)
-                    .title(args.currentReport.title)
+                    .title("Título: " + args.currentReport.title)
                     .snippet(snippet)
                     .icon(BitmapDescriptorFactory.fromBitmap(smallMarker!!))
             )

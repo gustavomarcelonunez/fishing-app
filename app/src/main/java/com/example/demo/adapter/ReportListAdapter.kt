@@ -41,15 +41,13 @@ class ReportListAdapter(
     inner class ReportViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.report_title)
         val fishingType: TextView = view.findViewById(R.id.report_fishingType)
-        val specie : TextView = view.findViewById(R.id.report_specie)
         val date: TextView = view.findViewById(R.id.report_dateTextView)
         val image: ImageView = view.findViewById(R.id.report_imageView)
 
         fun bind(report: Report) {
             itemView.setOnClickListener { itemClickListener.onItemClick(report) }
             title.text = "Título: " + report.title
-            fishingType.text = report.fishing_type
-            specie.text = "Especie: " + report.specie
+            fishingType.text = "Tipo: " + report.fishing_type + " - Especie: " + report.specie
             date.text = report.date
 
             val file = File(report.photo_path)

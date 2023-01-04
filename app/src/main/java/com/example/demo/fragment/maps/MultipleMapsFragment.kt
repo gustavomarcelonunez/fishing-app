@@ -45,14 +45,15 @@ class MultipleMapsFragment : Fragment() {
             val pos = LatLng(report.latitude!!, report.longitude!!)
             val snippet = String.format(
                 Locale.getDefault(),
-                "Tipo de pesca: %1$.15s, Fecha: %2$.15s",
+                "Tipo: %1$.15s - Especie: %2$.15s - Fecha: %3$.15s",
                 report.fishing_type,
+                report.specie,
                 report.date
             )
             marker = googleMap.addMarker(
                 MarkerOptions()
                     .position(pos)
-                    .title(report.title)
+                    .title("Título: " + report.title)
                     .snippet(snippet)
                     .icon(BitmapDescriptorFactory.fromBitmap(smallMarker!!))
             )
