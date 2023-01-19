@@ -160,8 +160,8 @@
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
         <action
-            android:id="@+id/goToMultipleMapsFragmentFromHomeAction"
-            app:destination="@id/multiple_maps_fragment"
+            android:id="@+id/goToStatisticsFragmentFromHomeAction"
+            app:destination="@id/statistics_fragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
@@ -205,5 +205,18 @@
         android:name="com.example.demo.fragment.register.RegisterFragment"
         android:label="Registro"
         tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/statistics_fragment"
+        android:name="com.example.demo.fragment.statistics.StatisticsFragment"
+        android:label="Estadísticas"
+        tools:layout="@layout/fragment_statistics" >
+        <action
+            android:id="@+id/goToMultipleMapsFragmentFromStatisticsAction"
+            app:destination="@id/multiple_maps_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
 
 </navigation>

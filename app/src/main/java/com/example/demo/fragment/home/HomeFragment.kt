@@ -23,7 +23,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         _binding!!.myReportsButton.setOnClickListener { showMyReports() }
-        _binding!!.goToMapButton.setOnClickListener { goToMap() }
+        _binding!!.goToStatisticsButton.setOnClickListener { goToStatistics() }
         _binding!!.newReportButton.setOnClickListener { newReport() }
         _binding!!.contestsButton.setOnClickListener { showContests() }
         _binding!!.regulationsButton.setOnClickListener { showRegulations() }
@@ -37,8 +37,8 @@ class HomeFragment : Fragment() {
         findNavController().navigate(R.id.goToMyReportsFromHomeAction)
     }
 
-    private fun goToMap() {
-        findNavController().navigate(R.id.goToMultipleMapsFragmentFromHomeAction)
+    private fun goToStatistics() {
+        findNavController().navigate(R.id.goToStatisticsFragmentFromHomeAction)
     }
 
     private fun newReport() {
