@@ -3,6 +3,7 @@ package com.example.demo.fragment.maps
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -167,6 +168,22 @@ class MapsFragment : Fragment() {
     }
 
     private fun updateReport() {
+
+        // Los reportes NO se actualizan en la nube. Los id's no coinciden, ya que en la bd local se guardan
+        // con un id numerico autoincrementaado, y en firebase se genera un id random.
+        // Tampoco se actualizan en la bd local si se hace desde la nube.
+        // Esto habría que verlo en el futuro si el proyecto prospera
+
+        db.collection("reports").document(args.currentReport.id.toString()).update(
+                "title", args.currentReport.title,
+                "fishing_type", args.currentReport.fishing_type,
+                "specie", args.currentReport.specie,
+                "date", args.currentReport.date,
+                "photo_path", args.currentReport.photo_path,
+                "latitude", args.currentReport.latitude,
+                "longitude", args.currentReport.longitude
+        )
+
         model.updateReport(args.currentReport)
         Toast.makeText(activity, "Reporte editado correctamente", Toast.LENGTH_LONG).show()
         findNavController().navigate(R.id.my_reports_fragment)

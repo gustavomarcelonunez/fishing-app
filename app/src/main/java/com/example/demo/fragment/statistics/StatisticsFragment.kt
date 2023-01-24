@@ -13,6 +13,8 @@ import com.example.demo.R
 import com.example.demo.databinding.FragmentStatisticsBinding
 import com.example.demo.model.Report
 import com.example.demo.viewModel.ReportViewModel
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class StatisticsFragment : Fragment() {
@@ -30,9 +32,6 @@ class StatisticsFragment : Fragment() {
         val reportList = reportViewModel.allReports.value!!
         fillLabels(reportList)
 
-
-
-
         _binding!!.goBackButton.setOnClickListener { goBack() }
         _binding!!.goToMultipleMapsButton.setOnClickListener { goToMultipleMaps() }
         val view = binding.root
@@ -42,17 +41,17 @@ class StatisticsFragment : Fragment() {
     private fun fillLabels(reportList: List<Report>) {
         _binding!!.startActivityTextView.text = reportList.last().date
 
-
-        val currentMonth = Date().month + 1
-
+        val currentMonth = Calendar.getInstance().get(Calendar.MONTH) + 1
+        val currentYear = Calendar.getInstance().get(Calendar.YEAR)
         var currentMonthReports = 0
+
+        var lastSixMonthsReports = 0
+        val sdf = SimpleDateFormat("d/M/yyyy")
+
         val delim = "/"
 
         // TODO
-        // Calcular cantidad de reportes de los ultimos seis meses
         // Calcular 1, 2 y 3 puesto de capturas
-
-        _binding!!.sixMonthsTextView.text = "seis meses"
 
         _binding!!.firstPlaceTextView.text = "pejerrey (10)"
         _binding!!.secondPlaceTextView.text = "surubi (8)"
@@ -64,12 +63,39 @@ class StatisticsFragment : Fragment() {
 
             if(splitedDate[1] == currentMonth.toString()) {
                 currentMonthReports += 1
-
             }
-            Log.i("Tag", report.date)
+
+            val actualReportDate: Date = sdf.parse(report.date)
+
+            if(currentMonth <= 6) {
+                val lastYear = currentYear - 1
+                val sixMonthsAgo = 12 - (6 - currentMonth)
+                val auxDate: Date = sdf.parse("1/$sixMonthsAgo/$lastYear")
+
+                val cmpDate = actualReportDate.compareTo(auxDate)
+                when {
+                    cmpDate >= 0 -> {
+                        lastSixMonthsReports += 1
+                    }
+                }
+            }
+            else if (currentMonth > 6) {
+                val sixMonthsAgo = currentMonth - 6
+                val auxDate: Date = sdf.parse("1/$sixMonthsAgo/$currentYear")
+
+                val cmpDate = actualReportDate.compareTo(auxDate)
+                when {
+                    cmpDate >= 0 -> {
+                        lastSixMonthsReports += 1
+                    }
+                }
+            }
+
+
         }
 
         _binding!!.lastMonthTextView.text = currentMonthReports.toString()
+        _binding!!.sixMonthsTextView.text = lastSixMonthsReports.toString()
         _binding!!.totalReportsTextView.text = reportList.size.toString()
         _binding!!.lastCaptureTextView.text = reportList.first().specie
     }
