@@ -99,6 +99,7 @@
         android:layout_marginEnd="39dp"
         android:layout_marginBottom="24dp"
         android:hint="Título imagen"
+        android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/captureImageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -42,7 +42,7 @@ class StatisticsFragment : Fragment() {
     }
 
     private fun fillLabels(reportList: List<Report>) {
-        _binding!!.startActivityTextView.text = getFirstDayOfReportList(reportList)
+
 
         var currentMonthReports = 0
         var lastSixMonthsReports = 0
@@ -50,40 +50,61 @@ class StatisticsFragment : Fragment() {
         val species = resources.getStringArray(R.array.species)
         var theSpeciesMap = createMutableMapOf(species)
 
-        for (report in reportList) {
-            val splitedDate = report.date.split(delim)
-            if(splitedDate[1] == currentMonth.toString() && splitedDate[2] == currentYear.toString()) {
-                currentMonthReports += 1
+        if (!reportList.isEmpty()) {
+            _binding!!.startActivityTextView.text = getFirstDayOfReportList(reportList)
+            for (report in reportList) {
+                val splitedDate = report.date.split(delim)
+                if (splitedDate[1] == currentMonth.toString() && splitedDate[2] == currentYear.toString()) {
+                    currentMonthReports += 1
+                }
+
+                val actualReportDate: Date = sdf.parse(report.date)
+                lastSixMonthsReports += checkForSixMonthsReport(actualReportDate)
+                theSpeciesMap[report.specie] = (theSpeciesMap[report.specie] ?: 0) + 1
             }
 
-            val actualReportDate: Date = sdf.parse(report.date)
-            lastSixMonthsReports += checkForSixMonthsReport(actualReportDate)
-            theSpeciesMap[report.specie] = (theSpeciesMap[report.specie]?: 0) + 1
+            _binding!!.currentMonthTextView.text = currentMonthReports.toString()
+            _binding!!.sixMonthsTextView.text = lastSixMonthsReports.toString()
+
+            //Extract function from here
+            val delimEqual = "="
+            var maxBy = theSpeciesMap.maxBy { it.value }
+            var splitedMaxBy = maxBy.toString().split(delimEqual)
+
+            _binding!!.firstPlaceTextView.text = splitedMaxBy[0] + " (" + splitedMaxBy[1] + ")"
+
+            theSpeciesMap.remove(splitedMaxBy[0])
+            maxBy = theSpeciesMap.maxBy { it.value }
+
+            splitedMaxBy = maxBy.toString().split(delimEqual)
+            if(splitedMaxBy[1] == "0") {
+                _binding!!.secondPlaceTextView.text = "-"
+            } else {
+                _binding!!.secondPlaceTextView.text = splitedMaxBy[0] + " (" + splitedMaxBy[1] + ")"
+            }
+            theSpeciesMap.remove(splitedMaxBy[0])
+            maxBy = theSpeciesMap.maxBy { it.value }
+
+            splitedMaxBy = maxBy.toString().split(delimEqual)
+            if(splitedMaxBy[1] == "0") {
+                _binding!!.thirdPlaceTextView.text = "-"
+            } else {
+                _binding!!.thirdPlaceTextView.text = splitedMaxBy[0] + " (" + splitedMaxBy[1] + ")"
+            }
+            //To here
+
+            _binding!!.totalReportsTextView.text = reportList.size.toString()
+            _binding!!.lastCaptureTextView.text = reportList.first().specie
+        } else {
+            _binding!!.startActivityTextView.text = "Aún no existen registros"
+            _binding!!.currentMonthTextView.text = "0"
+            _binding!!.sixMonthsTextView.text = "0"
+            _binding!!.totalReportsTextView.text = "0"
+            _binding!!.firstPlaceTextView.text = "-"
+            _binding!!.secondPlaceTextView.text = "-"
+            _binding!!.thirdPlaceTextView.text = "-"
+            _binding!!.lastCaptureTextView.text = "-"
         }
-        _binding!!.currentMonthTextView.text = currentMonthReports.toString()
-        _binding!!.sixMonthsTextView.text = lastSixMonthsReports.toString()
-
-        //Extract function from here
-        val delimEqual = "="
-
-        var maxBy = theSpeciesMap.maxBy { it.value }
-        var splitedMaxBy = maxBy.toString().split(delimEqual)
-
-        _binding!!.firstPlaceTextView.text = splitedMaxBy[0] + " (" + splitedMaxBy[1] + ")"
-
-        theSpeciesMap.remove(splitedMaxBy[0])
-        maxBy = theSpeciesMap.maxBy { it.value }
-        splitedMaxBy = maxBy.toString().split(delimEqual)
-        _binding!!.secondPlaceTextView.text = splitedMaxBy[0] + " (" + splitedMaxBy[1] + ")"
-
-        theSpeciesMap.remove(splitedMaxBy[0])
-        maxBy = theSpeciesMap.maxBy { it.value }
-        splitedMaxBy = maxBy.toString().split(delimEqual)
-        _binding!!.thirdPlaceTextView.text = splitedMaxBy[0] + " (" + splitedMaxBy[1] + ")"
-        //To here
-
-        _binding!!.totalReportsTextView.text = reportList.size.toString()
-        _binding!!.lastCaptureTextView.text = reportList.first().specie
     }
 
     private fun checkForSixMonthsReport(date: Date): Int {
