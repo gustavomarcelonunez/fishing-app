@@ -14,16 +14,19 @@ import androidx.navigation.ui.NavigationUI
 import com.example.demo.*
 import com.example.demo.Notification
 import com.example.demo.databinding.ActivityMainBinding
+import com.google.android.gms.location.*
 
 
 private lateinit var binding: ActivityMainBinding
 private lateinit var appBarConfiguration: AppBarConfiguration
 private lateinit var drawerLayout: DrawerLayout
+lateinit var geofencingClient: GeofencingClient
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        geofencingClient = LocationServices.getGeofencingClient(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
 
@@ -50,7 +53,9 @@ class MainActivity : AppCompatActivity() {
     private fun scheduleNotification() {
         val intent = Intent(applicationContext, Notification::class.java)
         val title = "Cambiar titulo"
-        val message = "Nuevo mensaje 2"
+        val message = "Este lago, además de ser propicia para la pesca con mosca, se " +
+                "encuentra a unos pocos kilómetros del paseo de bosque milenario, la escursiones " +
+                "se realizan de lunes a viernes en horario de 8 a 16 hs. Además hay camping y de todo!!!"
         intent.putExtra(titleExtra, title)
         intent.putExtra(messageExtra, message)
 
@@ -83,6 +88,5 @@ class MainActivity : AppCompatActivity() {
             notificationManager.createNotificationChannel(channel)
         }
     }
-
 
 }

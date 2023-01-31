@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FISHING APP</string>
+    <string name="app_name">Fishing App</string>
 
     <string name="fish_prompt">Tipo de pesca</string>
 
