@@ -17,12 +17,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/newReportButton"
+        android:id="@+id/myTopicsButton"
         android:layout_width="262dp"
         android:layout_height="55dp"
         android:layout_marginStart="74dp"
         android:layout_marginTop="5dp"
-        android:text="Nuevo reporte"
+        android:text="Mis tópicos"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myReportsButton" />
 
@@ -34,7 +34,7 @@
         android:layout_marginTop="5dp"
         android:text="Concursos"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newReportButton" />
+        app:layout_constraintTop_toBottomOf="@+id/myTopicsButton" />
 
     <Button
         android:id="@+id/regulationsButton"
