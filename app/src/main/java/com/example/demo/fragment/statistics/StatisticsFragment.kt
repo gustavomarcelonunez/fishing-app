@@ -43,7 +43,6 @@ class StatisticsFragment : Fragment() {
 
     private fun fillLabels(reportList: List<Report>) {
 
-
         var currentMonthReports = 0
         var lastSixMonthsReports = 0
 

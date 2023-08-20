@@ -48,7 +48,7 @@ android {
         enabled = true
     }
     buildFeatures {
-        viewBinding true
+        viewBinding = true
     }
     namespace 'com.example.demo'
 
@@ -118,5 +118,7 @@ dependencies {
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
 // Material design
     implementation "com.google.android.material:material:$rootProject.materialVersion"
+    implementation 'com.google.firebase:firebase-messaging:23.0.0'
+
 
 }

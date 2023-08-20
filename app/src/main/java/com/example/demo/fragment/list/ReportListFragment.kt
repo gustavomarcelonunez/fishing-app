@@ -33,6 +33,8 @@ class ReportListFragment : Fragment(), ReportListAdapter.OnReportClickListener {
         _binding = FragmentReportListBinding.inflate(inflater, container, false)
         _binding!!.homeActionButton.setOnClickListener { goHome() }
 
+        _binding!!.newReportActionButton.setOnClickListener{ newReport() }
+
         loadFullList()
 
         val view = binding.root
@@ -46,6 +48,10 @@ class ReportListFragment : Fragment(), ReportListAdapter.OnReportClickListener {
 
     private fun goHome() {
         findNavController().navigate(R.id.home_fragment)
+    }
+
+    private fun newReport() {
+        findNavController().navigate(R.id.goToNewReportAction)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
