@@ -1,5 +1,6 @@
 package com.example.demo.messaging
 
+import android.annotation.SuppressLint
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.demo.R
@@ -8,6 +9,7 @@ import com.google.firebase.messaging.RemoteMessage
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
+    @SuppressLint("MissingPermission")
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         val notificationTitle = remoteMessage.notification?.title ?: "Título predeterminado"
         val notificationBody = remoteMessage.notification?.body ?: "Cuerpo predeterminado"
