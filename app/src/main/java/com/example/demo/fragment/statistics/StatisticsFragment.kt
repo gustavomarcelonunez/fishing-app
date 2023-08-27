@@ -1,11 +1,13 @@
 package com.example.demo.fragment.statistics
 
 import android.icu.text.SimpleDateFormat
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.example.demo.R
@@ -23,6 +25,7 @@ class StatisticsFragment : Fragment() {
     private val currentMonth = Calendar.getInstance().get(Calendar.MONTH) + 1
     private val currentYear = Calendar.getInstance().get(Calendar.YEAR)
 
+    @RequiresApi(Build.VERSION_CODES.N)
     private val sdf = SimpleDateFormat("d/M/yyyy")
     private val delim = "/"
 

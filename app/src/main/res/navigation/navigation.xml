@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_navigation"
     app:startDestination="@id/main_fragment">
-    <!-- ...tags for fragments and activities here -->
 
     <fragment
         android:id="@+id/main_fragment"
@@ -230,5 +229,9 @@
         android:name="com.example.demo.fragment.topics.TopicsFragment"
         android:label="Mis tópicos"
         tools:layout="@layout/fragment_topics" />
-
+    <fragment
+        android:id="@+id/show_message_fragment"
+        android:name="com.example.demo.fragment.messaging.ShowMessageFragment"
+        android:label="Notificación recibida"
+        tools:layout="@layout/fragment_show_message" />
 </navigation>
